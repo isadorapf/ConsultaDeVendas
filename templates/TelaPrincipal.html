@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Tabelas</title>
+    <!-- Importando o arquivo CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='estilo.css') }}">
+</head>
+
+<body>
+    <!-- Conteúdo principal -->
+    <div class="main-container">
+        <div class="container">
+            <!-- Menu lateral -->
+            <div class="menu">
+                <h5>TABELAS</h5>
+                <ul>
+                    <li><button class="btn" data-table-name="fornecedores" onclick="showTableWithFilters('fornecedores')">Fornecedores</button></li>
+                    <li><button class="btn" data-table-name="clientes" onclick="showTableWithFilters('clientes')">Clientes</button></li>
+                    <li><button class="btn" data-table-name="vendas" onclick="showTableWithFilters('vendas')">Vendas</button></li>
+                    <li><button class="btn" data-table-name="produtos" onclick="showTableWithFilters('produtos')">Produtos</button></li>
+
+                </ul>
+
+            </div>
+                <!-- Área de conteúdo -->
+            <div class="content">
+                <!-- Filtros para a tabela de Fornecedores -->
+                <div class="filters" id="fornecedores-filters" style="display: none;">
+                     <input type="text" id="nomeFornecedor" name="NomeFornecedor" placeholder="Fornecedores">
+                    <input type="text" id="CNPJ" name="CNPJ" placeholder="CNPJ">
+                    <input type="text" id="Cidade" name="Cidade" placeholder="Cidade">
+                     <button class="btn">Filtrar</button>
+                </div>
+
+                <!-- Filtros para a tabela de Nome Cliente -->
+                <div class="filters" id="clientes-filters" style="display: none;">
+                    <input type="text" id="Nome" name="Nome" placeholder="Nome do Cliente">
+                    <input type="text" id="Telefone" name="Telefone" placeholder="Telefone">
+                    <button class="btn">Filtrar</button>
+                </div>
+
+                <!-- Filtros para a tabela de Transações -->
+                <div class="filters" id="vendas-filters" style="display: none;">
+                    <input type="text" id="Quantidade" name="Quantidade" placeholder="Quantidade">
+                    <input type="date" id="DataVenda" name="DataVenda" placeholder="Data">
+                    <button class="btn">Filtrar</button>
+                </div>
+
+
+               <!-- Filtros para a tabela de Produtos -->
+                <div class="filters" id="produtos-filters" style="display: none;">
+                    <input type="text" id="NomeProduto" name="NomeProduto" placeholder="Nome do Produto">
+                    <input type="date" id="DataCadastro" name="DataCadastro" placeholder="Data de Cadastro">
+                    <input type="text" id="Fabricante" name="Fabricante" placeholder="Fabricante">
+                    <button class="btn">Filtrar</button>
+                </div>
+
+
+
+
+                <!-- Área onde a tabela será mostrada -->
+                <div class="table-view">
+                    <div id="fornecedores-table" style="display:none;">Conteúdo da tabela de Fornecedores</div>
+                    <div id="clientes-table" style="display:none;">Conteúdo da tabela de Clientes</div>
+                    <div id="transacoes-table" style="display:none;">Conteúdo da tabela de Transações</div>
+                    <div id="vendas-table" style="display:none;">Conteúdo da tabela de Vendas</div>
+                    <div id="produtos-table" style="display:none;">Conteúdo da tabela de Produtos</div>
+                </div>
+
+
+                <!-- Console SQL -->
+                <div class="sql-console" id="sql-console" style="display: none;">
+                    <textarea id="sql-query-textarea" name="sql-query" placeholder="Digite sua consulta SQL aqui..."></textarea>
+                    <button class="btn" onclick="executeSQL()">Executar</button>
+                    <button class="close-btn" onclick="toggleConsole()">X</button>
+                    <button class="btn clear-btn" onclick="clearQuery()">Limpar Consulta</button>
+                </div>
+                    <!-- Botão para abrir/fechar o console SQL -->
+                    <button class="btn terminal-btn" onclick="toggleConsole()">Terminal de Consulta</button>
+                    <button class="btn print-btn">Exportar Arquivo</button>
+
+            </div> <!-- Fecha a div "content" -->
+        </div> <!-- Fecha a div "container" -->
+    </div> <!-- Fecha a div "main-container" -->
+
+    <!-- Scripts -->
+    <script src="{{url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

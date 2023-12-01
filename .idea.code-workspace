@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": ".idea"
+		},
+		{
+			"path": "HTML"
+		},
+		{
+			"path": "statitc"
+		},
+		{
+			"path": "templates"
+		},
+		{
+			"path": "venv"
+		}
+	]
+}

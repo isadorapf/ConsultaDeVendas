@@ -1,0 +1,327 @@
+
+/* Estilo geral do corpo da página */
+
+body {
+    background-color: #f5f7fa; /* cor de fundo Cinza claro */
+    font-family: Arial, sans-serif; /*definindo a fonte padrão*/
+    padding: 20px; /*adicionando espaço ao redor do conteudo*/
+}
+
+/* Estilo do contêiner principal */
+.container {
+    display: flex; /* Define o layout como flexível */
+    flex-direction: row; /* Direção do layout em linha */
+    justify-content: 100vh; /* Ocupa toda a altura da janela */
+}
+
+
+/* Estilo do menu lateral */
+.menu {
+    width: 250px; /* Largura definida */
+    flex: 0.5; /* Toma metade do espaço disponível */
+    border-right: 1px solid #ddd; /* Adiciona uma borda à direita */
+    padding-right: 20px; /* Espaçamento à direita */
+    background-color: #f9f9f9; /* Cor de fundo */
+    padding: 20px; /*espaçamento interno*/
+    cursor: ew-resize; /* Muda o cursor para indicar redimensionamento */
+    position: relative; /* Posicionamento relativo para ancorar outros elementos */
+}
+
+/* Estilo do título do menu */
+.menu h5 {
+    font-size: 24px; /* Define o tamanho da fonte */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    color: #333; /* cor do texto */
+    font-weight: bold; /* Texto em negrito */
+}
+
+/* Remove o estilo padrão da lista do menu */
+.menu ul {
+    list-style-type: none; /* Remove marcadores */
+    padding: 0; /* Remove o espaçamento padrão */
+}
+
+/* Espaçamento entre os itens do menu */
+.menu li {
+    margin-bottom: 15px; /* Espaço abaixo de cada item */
+}
+
+/* Estilo geral para botões */
+.btn {
+    background-color: #e0e0e0; /* cor de fundo */
+    border: none; /* sem borda */
+    border-radius: 5px; /* borda arredondada */
+    padding: 10px 15px; /* Espaçamento interno */
+    text-align: left; /* Alinhamento de texto à esquerda */
+    cursor: pointer; /* Muda o cursor para indicar clicabilidade */
+    transition: background-color 0.3s; /* Suaviza a mudança de cor de fundo*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    display: block; /* Exibe como bloco, ocupando toda a linha */
+}
+
+/* Estilo para botão quando o mouse passa por cima */
+.btn:hover {
+    background-color: #d0d0d0;  /* Escurece a cor de fundo */
+}
+
+/* Estilo do conteúdo principal à direita do menu */
+.content {
+    flex: 3.5; /* Toma 3.5 vezes o espaço do menu */
+    display: flex;  /* Usa layout flexível */
+    flex-direction: column;  /* Organiza os itens em colunas */
+    height: 100%;  /* Ocupa 100% da altura do contêiner */
+    position: relative;  /* Posicionamento relativo */
+}
+
+/* Estilo dos filtros */
+.filters {
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente */
+    margin-bottom: 20px; /* Espaço abaixo */
+    gap: 15px; /* Espaço uniforme entre os elementos */
+    flex-wrap: wrap; /* Quebra a linha se necessario */
+}
+
+/* Estilo dos campos de entrada e botões dentro dos filtros */
+.filters input, .filters button {
+    height: 28px; /* Altura definida */
+    border: 1px solid #ccc; /* Borda para campos de entrada Cinza */
+    padding: 5px 10px; /* Espaçamento interno*/
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 14px; /* Tamanho de fonte  */
+    flex: none; /* Nao permite o redimensionamento flexivel */
+}
+
+
+/* Estilo dos botões dentro dos filtros */
+.filters button {
+    background-color: #e0e0e0; /* Cor de fundo similar aos outros botões */
+    cursor: pointer; /* Indica que é clicável */
+    transition: background-color 0.3s; /* Suave transição de cor de fundo */
+    width: auto;
+}
+
+
+/* Estilo do botão ao passar o mouse por cima dentro dos filtros */
+.filters button:hover {
+    background-color: #d0d0d0; /* Cor de fundo ao passar o mouse */
+}
+
+
+/* Estilo do console SQL quando está visível */
+.sql-console {
+    position: absolute; /* Posicionamento absoluto */
+    top: 5px;   /* Espaço do topo */
+    left: 5px; /* Espaço da esquerda */
+    width: calc(70% - 100% / 25); /* Calcula a largura */
+    height: 40vh;   /* Ocupa 40% da altura da tela */
+    background-color: rgba(245, 245, 245, 0.95); /* Cor de fundo suave */
+    z-index: 100; /* Fica acima de outros elementos */
+    padding: 20px; /* espaçamento interno */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px; /* Borda arredondada */
+    cursor: move; /* Cursor indica que pode ser movido */
+}
+
+
+.sql-results {
+    position: absolute;
+    top: 55vh; 
+    left: 0;
+    width: 100%;
+    height: 45vh; 
+    background-color: hsl(0, 0%, 97%);
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 100;
+
+    
+}
+
+/* Estilo da área de texto dentro do console SQL */
+.sql-console textarea {
+    width: 100%;   /* Ocupa toda a largura do contêiner */
+    height: 80%;   /* Ocupa 80% da altura do contêiner */
+    margin-bottom: 10px;
+    resize: none;  /* Desativa o redimensionamento */
+    margin: 0;  
+    padding: 15px; /* Padding interno para o texto */
+    box-sizing: border-box;  /* O padding não afeta o tamanho total */
+    border: 1px solid #ddd; /* Borda suave */
+    border-radius: 5px; /* Borda arredondada */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    font-size: 16px; /* Tamanho de fonte confortável */
+    color: #333; /* Cor de texto escura */
+}
+
+/* Estilo dos botões dentro do console SQL */
+.sql-console button {
+    width: auto; /* Ajusta o tamanho com base no conteúdo */
+    padding: 5px 10px; /* Padding reduzido */
+    margin: 5px; /* Espaçamento entre os botões */
+    background-color: #f0f0f0; /* Um cinza claro */
+    border: 1px solid #d0d0d0; /* Borda sutil */
+    border-radius: 5px; /* Bordas arredondadas */
+    color: #333; /* Cor do texto */
+    cursor: pointer; /* Cursor de mão ao passar o mouse sobre o botão */
+    transition: background-color 0.3s; /* Transição suave ao mudar a cor de fundo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para dar um efeito elevado */
+}
+
+
+/* Estilo do botão ao passar o mouse por cima no console SQL */
+.sql-console button:hover {
+    background-color: #e0e0e0; /* Cor de fundo mais escura ao passar o mouse */
+}
+
+
+/* Estilo do botão de terminal */
+.terminal-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px; /* Alinhado à esquerda */
+    width: auto; /* Tamanho baseado no conteúdo */
+}
+
+/* Estilo do botão de exportação de arquivo */
+.print-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: auto; /* Tamanho baseado no conteúdo */
+}
+
+
+/* Estilo do botão de fechar (X) no console SQL */
+.close-btn {
+    position: absolute;
+    top: 0px;  /* espaço do topo */
+    right: 0px; /* alinhado a direita */
+    background: none;  /* Sem cor de fundo */
+    border: none;  /* Sem borda */
+    font-size: 15px;  /* Tamanho do "X" */
+    color: #f44336;  /* Cor vermelha para o "X" */
+    cursor: pointer;  /* Cursor de mão ao passar o mouse */
+    padding: 5px;  /* Espaço interno para o "X" */
+}
+
+/* Estilo do botão de limpar consulta no console SQL */
+.clear-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Estilo do botão de alternar menu */
+.toggle-menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+/* Estilo do menu quando está recolhido */
+.menu.collapsed {
+    flex: 0; /* Nao ocupa espaço*/
+    overflow: hidden; /* Esconda qualquer conteúdo que possa transbordar */
+    width: 0; /* largura do menu como 0 */
+    transition: width 0.3s; /* suaviza a mudança de largura */
+    
+}
+
+/* Estilo para desabilitar a seleção de texto */
+
+.no-select {
+user-select: none; /* Impede a seleção */
+}
+
+.resize-handle {
+    position: absolute;
+    top: 0;
+    bottom: calc(100% - 10px);  /* 10px é a altura da alça */
+    left: 0;
+    right: 0;
+    height: 5px;
+    cursor: ns-resize;
+    z-index: 101;
+    background-color: #ccc;
+}
+
+
+
+.resize-handle-horizontal {
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    cursor: ew-resize; /* cursor que indica redimensionamento horizontal */
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+/* Estilo para a tela de login */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.login-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.filters-and-content {
+    display: flex;
+    flex-direction: column;
+    flex: 3.5;  /* Ajuste conforme necessário */
+}
+
+
+
+
